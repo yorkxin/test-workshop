@@ -46,4 +46,8 @@ RSpec.describe Post, :type => :model do
       expect(subject).to eq "published"
     end
   end
+
+  describe ".published" do
+    pending "we'll do this later with factory"
+  end
 end

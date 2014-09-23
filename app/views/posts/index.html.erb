@@ -1,7 +1,15 @@
 <h1>Cybercity Blog</h1>
 
-<% @posts.each do |post| %>
+<% @posts.published.each do |post| %>
   <h2><%= link_to post.title, post %></h2>
 <% end %>
 
 <%= link_to 'New Post', new_post_path %>
+
+<h2>Draft posts</h2>
+
+<ul>
+<% @posts.draft.each do |post| %>
+  <li><%= link_to post.title, post %></li>
+<% end %>
+</ul>

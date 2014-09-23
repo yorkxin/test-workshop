@@ -2,6 +2,10 @@
 
 <h1><%= @post.title %></h1>
 
+<% if @post.state == "draft" %>
+<i>Draft</i>
+<% end %>
+
 <hr>
 
 <%= simple_format @post.body %>

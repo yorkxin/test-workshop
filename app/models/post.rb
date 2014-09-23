@@ -2,6 +2,9 @@ class Post < ActiveRecord::Base
   before_create :generate_slug
   before_create :set_draft
 
+  scope :published, -> { where(:state => "published") }
+  scope :draft, -> { where(:state => "draft") }
+
   # Prettify URL
   def to_param
     "#{self.id}-#{self.slug}"
