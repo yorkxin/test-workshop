@@ -92,7 +92,7 @@ RSpec.describe Post, :type => :model do
 
     context "a post that is draft" do
       before {
-        # stub here
+        allow(post).to receive(:state) { "draft" }
       }
 
       it "is true" do
@@ -102,7 +102,7 @@ RSpec.describe Post, :type => :model do
 
     context "a post that is published" do
       before {
-        # stub here
+        allow(post).to receive(:state) { "" }
       }
 
       it "is false" do
@@ -112,12 +112,21 @@ RSpec.describe Post, :type => :model do
   end
 
   describe "#to_param" do
-    # Add let and subject here
+    let(:post) {
+      Post.create(:title => "Don't Care")
+    }
 
-    # stub id and slub here
+    before {
+      allow(post).to receive(:id) { 3 }
+      allow(post).to receive(:slug) { "hello-world" }
+    }
+
+    subject {
+      post.to_param
+    }
 
     it "generates correct URL param according to id and slug" do
-      # add expect here
+      expect(subject).to eq "3-hello-world"
     end
   end
 end
