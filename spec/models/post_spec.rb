@@ -14,4 +14,12 @@ RSpec.describe Post, :type => :model do
       expect(subject).to eq("the-answer-to-everything-the-university-42")
     end
   end
+
+  describe "default state" do
+    # add let and subject here
+
+    it "is draft" do
+      # add expect here
+    end
+  end
 end
