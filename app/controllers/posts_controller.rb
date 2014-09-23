@@ -51,6 +51,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def publish
+    @post.publish!
+
+    redirect_to post_url(@post)
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy

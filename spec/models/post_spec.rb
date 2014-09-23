@@ -28,4 +28,22 @@ RSpec.describe Post, :type => :model do
       expect(subject).to eq "draft"
     end
   end
+
+  describe "#publish!" do
+    let(:post) {
+      Post.create(:title => "Don't Care")
+    }
+
+    before {
+      post.publish!
+    }
+
+    subject {
+      post.state
+    }
+
+    it "becomes published" do
+      expect(subject).to eq "published"
+    end
+  end
 end
