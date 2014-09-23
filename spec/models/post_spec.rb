@@ -50,4 +50,34 @@ RSpec.describe Post, :type => :model do
   describe ".published" do
     pending "we'll do this later with factory"
   end
+
+  describe "#draft?" do
+    let(:post) {
+      Post.create(:title => "I'm almost tired to type title")
+    }
+
+    subject {
+      post.draft?
+    }
+
+    context "a post whose state is draft" do
+      before {
+        allow(post).to receive(:state) { "draft" }
+      }
+
+      it "is true" do
+        expect(subject).to be_truthy
+      end
+    end
+
+    context "a post whose state is published" do
+      before {
+        allow(post).to receive(:state) { "published" }
+      }
+
+      it "is false" do
+        expect(subject).to be_falsy
+      end
+    end
+  end
 end

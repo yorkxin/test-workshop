@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :publish]
 
   # GET /posts
   # GET /posts.json
@@ -52,7 +52,12 @@ class PostsController < ApplicationController
   end
 
   def publish
-    @post.publish!
+    if @post.can_publish?
+      @post.publish!
+      flash.notice = "Successfully published post."
+    else
+      flash.alert = "Cannot publish post."
+    end
 
     redirect_to post_url(@post)
   end

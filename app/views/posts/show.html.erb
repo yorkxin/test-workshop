@@ -2,8 +2,8 @@
 
 <h1><%= @post.title %></h1>
 
-<% if @post.state == "draft" %>
-<i>Draft</i>
+<% if @post.draft? %>
+<p><i>Draft</i> <%= link_to "Publish", publish_post_url(@post), :method => :patch %></p>
 <% end %>
 
 <hr>
