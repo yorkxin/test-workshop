@@ -16,10 +16,16 @@ RSpec.describe Post, :type => :model do
   end
 
   describe "default state" do
-    # add let and subject here
+    let(:post) {
+      Post.create(:title => "Hello! World")
+    }
+
+    subject {
+      post.state
+    }
 
     it "is draft" do
-      # add expect here
+      expect(subject).to eq "draft"
     end
   end
 end
