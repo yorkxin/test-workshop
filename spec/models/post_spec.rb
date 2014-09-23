@@ -80,4 +80,44 @@ RSpec.describe Post, :type => :model do
       end
     end
   end
+
+  describe "#can_publish?" do
+    let(:post) {
+      Post.create(:title => "I'm almost tired to type title")
+    }
+
+    subject {
+      post.can_publish?
+    }
+
+    context "a post that is draft" do
+      before {
+        # stub here
+      }
+
+      it "is true" do
+        expect(subject).to be_truthy
+      end
+    end
+
+    context "a post that is published" do
+      before {
+        # stub here
+      }
+
+      it "is false" do
+        expect(subject).to be_falsy
+      end
+    end
+  end
+
+  describe "#to_param" do
+    # Add let and subject here
+
+    # stub id and slub here
+
+    it "generates correct URL param according to id and slug" do
+      # add expect here
+    end
+  end
 end
