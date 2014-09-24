@@ -46,21 +46,31 @@ RSpec.describe "Comments", :type => :request do
 
       context "missing author" do
         let(:comment_params) {
-          # fill me
+          {
+            :author => "",
+            :content => "Good article. I like it."
+          }
         }
 
         it "does not create a new comment" do
-          # fill me
+          expect {
+            subject
+          }.not_to change { the_post.comments.count }
         end
       end
 
       context "missing content" do
         let(:comment_params) {
-          # fill me
+          {
+            :author => "John Appleseed",
+            :content => ""
+          }
         }
 
         it "does not create a new comment" do
-          # fill me
+          expect {
+            subject
+          }.not_to change { the_post.comments.count }
         end
       end
     end
