@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, :type => :model do
   describe "#slug" do
     let(:post) {
-      Post.create(:title => "The answer to everything & the university = 42")
+      Fabricate(:post, :title => "The answer to everything & the university = 42")
     }
 
     subject {
@@ -17,7 +17,7 @@ RSpec.describe Post, :type => :model do
 
   describe "default state" do
     let(:post) {
-      Post.create(:title => "Hello! World")
+      Fabricate(:post)
     }
 
     subject {
@@ -31,7 +31,7 @@ RSpec.describe Post, :type => :model do
 
   describe "#publish!" do
     let(:post) {
-      Post.create(:title => "Don't Care")
+      Fabricate(:post)
     }
 
     before {
@@ -52,17 +52,13 @@ RSpec.describe Post, :type => :model do
   end
 
   describe "#draft?" do
-    let(:post) {
-      Post.create(:title => "I'm almost tired to type title")
-    }
-
     subject {
       post.draft?
     }
 
     context "a post whose state is draft" do
-      before {
-        allow(post).to receive(:state) { "draft" }
+      let(:post) {
+        Fabricate(:post)
       }
 
       it "is true" do
@@ -71,8 +67,8 @@ RSpec.describe Post, :type => :model do
     end
 
     context "a post whose state is published" do
-      before {
-        allow(post).to receive(:state) { "published" }
+      let(:post) {
+        Fabricate(:published_post)
       }
 
       it "is false" do
@@ -82,17 +78,13 @@ RSpec.describe Post, :type => :model do
   end
 
   describe "#can_publish?" do
-    let(:post) {
-      Post.create(:title => "I'm almost tired to type title")
-    }
-
     subject {
       post.can_publish?
     }
 
     context "a post that is draft" do
-      before {
-        allow(post).to receive(:state) { "draft" }
+      let(:post) {
+        Fabricate(:post)
       }
 
       it "is true" do
@@ -101,8 +93,8 @@ RSpec.describe Post, :type => :model do
     end
 
     context "a post that is published" do
-      before {
-        allow(post).to receive(:state) { "" }
+      let(:post) {
+        Fabricate(:published_post)
       }
 
       it "is false" do
@@ -113,7 +105,7 @@ RSpec.describe Post, :type => :model do
 
   describe "#to_param" do
     let(:post) {
-      Post.create(:title => "Don't Care")
+      Fabricate(:post)
     }
 
     before {

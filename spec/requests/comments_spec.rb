@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Comments", :type => :request do
   describe "POST /posts/xxx/comments" do
     let!(:the_post) {
-      Post.create(:title => "dont care", :body => "dont care")
+      Fabricate(:post)
     }
 
     subject {
