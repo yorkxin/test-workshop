@@ -48,7 +48,30 @@ RSpec.describe Post, :type => :model do
   end
 
   describe ".published" do
-    pending "we'll do this later with factory"
+    before {
+      # some draft posts
+      Fabricate.times(3, :post)
+    }
+
+    let!(:post_1) {
+      Fabricate(:published_post)
+    }
+
+    let!(:post_2) {
+      Fabricate(:published_post)
+    }
+
+    let!(:post_3) {
+      Fabricate(:published_post)
+    }
+
+    subject {
+      Post.published
+    }
+
+    it "reveals published posts only" do
+      expect(subject).to contain_exactly(post_1, post_2, post_3)
+    end
   end
 
   describe "#draft?" do
