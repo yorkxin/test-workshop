@@ -39,5 +39,30 @@ RSpec.describe "Comments", :type => :request do
       end
     end
 
+    describe "missing params" do
+      before {
+        the_post.publish!
+      }
+
+      context "missing author" do
+        let(:comment_params) {
+          # fill me
+        }
+
+        it "does not create a new comment" do
+          # fill me
+        end
+      end
+
+      context "missing content" do
+        let(:comment_params) {
+          # fill me
+        }
+
+        it "does not create a new comment" do
+          # fill me
+        end
+      end
+    end
   end
 end
