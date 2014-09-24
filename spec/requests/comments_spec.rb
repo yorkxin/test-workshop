@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Comments", :type => :request do
   describe "POST /posts/xxx/comments" do
+    # Simplify this with Fabricate()
     let!(:the_post) {
       Fabricate(:post)
     }
@@ -19,6 +20,7 @@ RSpec.describe "Comments", :type => :request do
       }
 
       context "a post that is published" do
+        # Simplify this with Fabricate()
         before {
           the_post.publish!
         }
@@ -31,6 +33,7 @@ RSpec.describe "Comments", :type => :request do
       end
 
       context "a post that is draft" do
+        # Simplify this with Fabricate()
         it "does not create a new comment" do
           expect {
             subject rescue nil # ignore any exception
@@ -40,6 +43,7 @@ RSpec.describe "Comments", :type => :request do
     end
 
     describe "missing params" do
+      # Simplify this with Fabricate()
       before {
         the_post.publish!
       }
