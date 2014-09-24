@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   before_create :generate_slug
   before_create :set_draft
 
+  has_many :comments
+
   scope :published, -> { where(:state => "published") }
   scope :draft, -> { where(:state => "draft") }
 

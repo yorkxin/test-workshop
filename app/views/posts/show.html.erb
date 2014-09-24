@@ -8,5 +8,19 @@
 
 <%= simple_format @post.body %>
 
+<hr>
+
+<h2>Comments</h2>
+
+<% @post.comments.each do |comment| %>
+  <% next unless comment.persisted? %>
+  <p><b><%= comment.author %></b> <i>(<%= l comment.created_at %>)</i></p>
+  <%= simple_format(comment.content) %>
+<% end %>
+
+<%= render :partial => "posts/new_comment", :locals => {
+  :comment => @comment
+} %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

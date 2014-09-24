@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :posts do
+    resources :comments, :only => :create
+
     member do
       patch :publish
     end
