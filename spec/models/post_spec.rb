@@ -74,15 +74,21 @@ RSpec.describe Post, :type => :model do
     end
   end
 
+  shared_context "a post whose state is draft" do
+    let(:post) { Fabricate(:post) }
+  end
+
+  shared_context "a post whose state is published" do
+    let(:post) { Fabricate(:published_post) }
+  end
+
   describe "#draft?" do
     subject {
       post.draft?
     }
 
     context "a post whose state is draft" do
-      let(:post) {
-        Fabricate(:post)
-      }
+      include_context "a post whose state is draft"
 
       it "is true" do
         expect(subject).to be_truthy
@@ -90,9 +96,7 @@ RSpec.describe Post, :type => :model do
     end
 
     context "a post whose state is published" do
-      let(:post) {
-        Fabricate(:published_post)
-      }
+      include_context "a post whose state is published"
 
       it "is false" do
         expect(subject).to be_falsy
@@ -106,9 +110,7 @@ RSpec.describe Post, :type => :model do
     }
 
     context "a post that is draft" do
-      let(:post) {
-        Fabricate(:post)
-      }
+      include_context "a post whose state is draft"
 
       it "is true" do
         expect(subject).to be_truthy
@@ -116,9 +118,7 @@ RSpec.describe Post, :type => :model do
     end
 
     context "a post that is published" do
-      let(:post) {
-        Fabricate(:published_post)
-      }
+      include_context "a post whose state is published"
 
       it "is false" do
         expect(subject).to be_falsy

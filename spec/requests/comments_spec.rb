@@ -6,6 +6,14 @@ RSpec.describe "Comments", :type => :request do
       post "/posts/1/comments", :comment => comment_params
     }
 
+    shared_examples "not creating a new comment" do
+      it "does not create a new comment" do
+        expect {
+          subject rescue nil # ignore any exception
+        }.not_to change { the_post.comments.count }
+      end
+    end
+
     context "filling all fields" do
       let(:comment_params) {
         {
@@ -31,11 +39,7 @@ RSpec.describe "Comments", :type => :request do
           Fabricate(:post)
         }
 
-        it "does not create a new comment" do
-          expect {
-            subject rescue nil # ignore any exception
-          }.not_to change { the_post.comments.count }
-        end
+        it_behaves_like "not creating a new comment"
       end
     end
 
@@ -52,11 +56,7 @@ RSpec.describe "Comments", :type => :request do
           }
         }
 
-        it "does not create a new comment" do
-          expect {
-            subject
-          }.not_to change { the_post.comments.count }
-        end
+        it_behaves_like "not creating a new comment"
       end
 
       context "missing content" do
@@ -67,11 +67,7 @@ RSpec.describe "Comments", :type => :request do
           }
         }
 
-        it "does not create a new comment" do
-          expect {
-            subject
-          }.not_to change { the_post.comments.count }
-        end
+        it_behaves_like "not creating a new comment"
       end
     end
   end
