@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
+      AdminNotificaitonMailer.new_comment(@comment).deliver
       redirect_to post_url(@post)
     else
       flash.alert = "There are some errors in your new comment, please check them and try again."

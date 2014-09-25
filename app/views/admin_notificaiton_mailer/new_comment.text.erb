@@ -1,0 +1,13 @@
+<%= @post.title %> got a new comment.
+
+From: <%= @comment.author %>
+
+At: <%= l @comment.created_at %>
+
+---
+
+<%= @comment.content %>
+
+---
+
+To view this comment, visit <%= post_url(@post) %>

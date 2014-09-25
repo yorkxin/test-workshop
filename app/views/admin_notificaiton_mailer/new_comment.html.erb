@@ -1,0 +1,12 @@
+<h1><%= @post.title %> got a new comment.</h1>
+
+<p>From: <%= @comment.author %></p>
+<p>At: <%= l @comment.created_at %></p>
+
+---
+
+<%= simple_format @comment.content %>
+
+---
+
+To view this comment, visit <%= link_to post_url(@post), post_url(@post) %>.
