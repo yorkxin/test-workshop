@@ -4,9 +4,9 @@ This repository hosts materials of Rails testing workshop.
 
 It's very draftly and only includes very basic usages of RSpec testing. It may be improved in the future. If you have any idea feel free to open an issue.
 
-Also, you're free to you this material. You don't have to ask me anything to use this material. It'll be nice if you drop a note to me (twitter @yorkxin) if you have used this. Any feedback is welcomed.
+Also, you're free to use this material. You don't have to ask me anything to use this material. It'll be nice if you drop a note to me (twitter @yorkxin) if you have used this. Any feedback is welcomed.
 
-## Hot to use
+## How to use
 
 The repository contains several tags that help attendees switch to a revision quickly:
 
