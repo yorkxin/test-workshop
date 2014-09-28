@@ -23,6 +23,23 @@ To run the workshop:
 * Ask attendees to `git checkout -f answer-01` (their works will be overriden).
 * Continue to 1 for next loop.
 
+## Slides
+
+The slides I used during Rails Pacific 2014 is here: [Rails Testing Workshop // Speaker Deck](https://speakerdeck.com/chitsaou/rails-testing-workshop)
+
+## Things to improve
+
+This workshop is not good enough, and needs many improvements. Here are some of them I thought of:
+
+* Make it possible for attendees to save their works
+  * This includes the problem on how to apply new sample (app) code
+  * It can't work like RailsBridge since the only things they do are tests
+* Don't teach "stub" for beginners
+* Don't teach "subject" for beginners
+* Don't teach shared context / shared examples for beginners
+* More exercises
+* More material references
+
 ## License
 
 ### Source Code
