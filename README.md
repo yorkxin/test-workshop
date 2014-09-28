@@ -40,6 +40,8 @@ This workshop is not good enough, and needs many improvements. Here are some of 
 * More exercises
 * More material references
 
+Got any idea? Open a new [issue](https://github.com/chitsaou/test-workshop/issues)!
+
 ## License
 
 ### Source Code
