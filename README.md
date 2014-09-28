@@ -44,7 +44,7 @@ Got any idea? Open a new [issue](https://github.com/chitsaou/test-workshop/issue
 
 ## License
 
-You can use this material for any purpose without my permission. However, to avoid legal issues, I still have to claim license agreement here. But remember, **it's yours, take it**.
+You can use this material for any purpose without my permission, including host your workshop. However, to avoid legal issues, I still have to claim license agreement here. But remember, **it's yours, take it**.
 
 ### Source Code
 
